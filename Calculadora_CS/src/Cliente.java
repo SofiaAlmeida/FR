@@ -1,0 +1,2 @@
+// Establecer la comunicación
+
