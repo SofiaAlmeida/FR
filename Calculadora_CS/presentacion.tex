@@ -1,0 +1,87 @@
+\documentclass[spanish]{beamer}
+
+%%% CODIFICACIÓN
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphics,tikz}
+
+%%% FUENTES
+
+\usepackage[T1]{fontenc}
+\usepackage{newtxsf} % Fuente de matemáticas
+
+\setbeamertemplate{navigation symbols}{}
+
+%%% COLORES
+
+\definecolor{background}{RGB}{237,237,237}
+\definecolor{text}{RGB}{78,78,78}
+\definecolor{accent}{RGB}{255, 153, 153}
+%\definecolor{accent}{RGB}{255, 102, 102}
+
+\setbeamerfont{framesubtitle}{size=\normalfont\tiny}
+\setbeamercolor{framesubtitle}{fg=white}
+
+
+%%% AJUSTES DE BEAMER
+
+% ¿Negrita en el título de diapositiva o no?
+%\setbeamertemplate{frametitle}{\color{accent}\vspace*{1cm}\bfseries\insertframetitle\par\vskip-6pt}
+
+\setbeamertemplate{frametitle}{\color{accent}\vspace*{1cm}\insertframetitle\par\vskip-6pt}
+
+\setbeamertemplate{itemize items}[circle] % Viñetas de itemize
+
+%%% CONFIGURACIÓN DE COLORES DE BEAMER
+
+\setbeamercolor{background canvas}{bg=background}
+\setbeamercolor{normal text}{fg=text}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{block title}{fg=accent}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{enumerate item}{fg=accent}
+\setbeamercolor*{title}{fg=accent}
+\setbeamercolor{qed symbol}{fg=accent}
+\usebeamercolor[fg]{normal text}
+
+%%% PGFPLOTSTABLE
+
+\usepackage{pgfplotstable}
+
+
+\pgfplotstableset{
+columns/0/.style={
+     column name={Elementos},
+   },
+columns/1/.style={
+     column name={Tiempo en segundos},
+   },
+}
+
+%%% INFORMACIÓN DEL DOCUMENTO
+
+\title{Fundamentos de Redes}
+\subtitle{Definición e implementación de un protocolo de aplicación}
+\author{Sofía Almeida Bruno\\ Fernando de la Hoz Moreno}
+
+\begin{document}
+
+\maketitle
+\begin{frame}{Descripción de la aplicación}
+	
+\end{frame}
+
+\begin{frame}{Diagrama de estados del servidor}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.55]{./diagrama}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Mensajes que intervienen}
+	
+\end{frame}
+
+\end{document}
