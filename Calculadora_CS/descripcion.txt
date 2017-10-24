@@ -1,0 +1,5 @@
+Nuestro proyecto se basa en hacer una calculadora que tenga diferentes funcionalidades, diseñada según en el paradigma
+cliente-servidor, en el que los clientes son los usuarios que se solicitaran el procesamiento de un cálculo y
+el servidor será la calculadora que se encargara de atender las peticiones de los clientes. Para ello utilizaremos
+los sockets TCP que nos garantiza que la información que se intercambia entre los usuarios y la calculadora es 
+fiable y la sobrecarga del TCP sobre el UDP no nos afecta.

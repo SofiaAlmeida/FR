@@ -1,0 +1,120 @@
+código 001
+
+                        __________________________________________________
+                       |                                                  |
+                       |                                                  |
+                       |                   CALCULADORA                    |
+                       |                                                  |
+                       |__________________________________________________|
+
+
+
+                        A - OPERACIONES MATEMATICAS
+                        
+                        B - RESOLUTOR DE ECUACIONES
+
+
+Descripcion:
+Menú inicial de la calculadora
+
+------------------------------------------------------------------------------------------
+código 002
+
+OPERACIONES MATEMATICAS
+
+A - SUMA                     E - POTENCIAL
+
+B - RESTA                    F - LOGARITMICA
+
+C - MULTIPLICACION           G - POTENCIA
+
+D - DIVISION
+
+
+Descripción
+Menú de operaciones matemáticas
+
+------------------------------------------------------------------------------------------
+código 003
+
+RESOLUTOR DE ECUACIONES
+
+A - PRIMER GRADO
+
+B - SEGUNDO GRADO
+
+C - TERCER GRADO
+
+Descripción
+Menú de resolutor de ecuaciones
+
+------------------------------------------------------------------------------------------
+código 004
+
+Introduzca los dos operandos ( A B ): 
+
+Descripción
+Petición de datos de los operandos
+
+------------------------------------------------------------------------------------------
+código 005
+
+Introduzca el operando: 
+
+Descripción
+Petición de datos del operando
+
+------------------------------------------------------------------------------------------
+código 006
+
+Introduzca los dos operandos ( BASE EXPONENTE ):         
+
+Descripción
+Petición de datos de los operandos
+
+------------------------------------------------------------------------------------------
+código 007
+
+Ax + B = 0
+
+Introduzca los coeficientes ( A B ): 
+
+Descripción
+Petición de datos de la ecuación de primer grado
+
+------------------------------------------------------------------------------------------
+código 008
+
+Ax² + Bx + C = 0
+
+Introduzca los coeficientes ( A B C ):
+
+Descripción
+Petición de datos de la ecuación de segundo grado
+
+------------------------------------------------------------------------------------------
+código 009
+
+AX³ + Bx² + Cx + D = 0
+
+Introduzca los coeficientes ( A B C D ):
+
+Descripción
+Petición de datos de la ecuación de segundo grado
+------------------------------------------------------------------------------------------
+código 010
+
+El resultado es: (RESULTADO)
+
+¿Voler a la CALCULADORA?(Si/No): 
+
+Descripción
+Muestra los resultados y pregunta si hacer nuevo cálculo.
+
+------------------------------------------------------------------------------------------
+código 011
+
+Adiós.
+
+Descripción
+Se despide.
