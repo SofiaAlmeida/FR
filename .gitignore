@@ -1,0 +1,4 @@
+# Archivos auxiliares LaTeX
+*.aux
+*.log
+*.swp
