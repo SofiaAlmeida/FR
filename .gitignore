@@ -2,3 +2,7 @@
 *.aux
 *.log
 *.swp
+*.nav
+*.out
+*.snm
+*.toc

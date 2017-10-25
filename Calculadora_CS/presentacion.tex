@@ -18,7 +18,7 @@
 \definecolor{background}{RGB}{237,237,237}
 \definecolor{text}{RGB}{78,78,78}
 \definecolor{accent}{RGB}{255, 153, 153}
-%\definecolor{accent}{RGB}{255, 102, 102}
+\definecolor{accent}{RGB}{255, 102, 102}
 
 \setbeamerfont{framesubtitle}{size=\normalfont\tiny}
 \setbeamercolor{framesubtitle}{fg=white}
@@ -69,8 +69,15 @@ columns/1/.style={
 \begin{document}
 
 \maketitle
-\begin{frame}{Descripción de la aplicación}
+\begin{frame}{Descripción de la aplicación - Calculadora}
+	\begin{itemize}
+		\item Clientes: usuarios que solicitan realizar un cálculo
+		\item Servidor: calculadora que atiende las peticiones 
+		\item Sockets TCP
+\end{itemize}
 	
+	 
+
 \end{frame}
 
 \begin{frame}{Diagrama de estados del servidor}
@@ -80,8 +87,25 @@ columns/1/.style={
 	\end{figure}
 \end{frame}
 
+
 \begin{frame}{Mensajes que intervienen}
-	
+	\begin{table}[]
+\centering
+\label{my-label}
+\begin{tabular}{lll}
+\hline
+\multicolumn{1}{|l|}{Código} & \multicolumn{1}{l|}{Cuerpo} & \multicolumn{1}{l|}{Descripción}   \\ \hline
+001                          & HOLA                        & Confirmación de conexión realizada \\
+002                          & OPC                         & Opción elegida                     \\
+003                          & OK                          & Elección verificada                \\
+004                          & ERR                         & Opción incorrecta                  \\
+005                          & DAT                         & Datos con los que operar           \\
+006                          & RES                         & Resultado de la operación          \\
+007                          & SI                          & Realizar otra operación            \\
+008                          & NO                          & No realizar otra operación         \\
+009                          & ADIOS                       & Finalización de la conexión       
+\end{tabular}
+\end{table}
 \end{frame}
 
 \end{document}
