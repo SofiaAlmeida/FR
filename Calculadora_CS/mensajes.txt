@@ -106,7 +106,7 @@ código 010
 
 El resultado es: (RESULTADO)
 
-¿Voler a la CALCULADORA?(Si/No): 
+¿Volver a la CALCULADORA?(Si/No): 
 
 Descripción
 Muestra los resultados y pregunta si hacer nuevo cálculo.
