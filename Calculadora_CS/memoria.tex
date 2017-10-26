@@ -121,5 +121,34 @@ Definición e implementación de un protocolo de aplicación} % Subtitle
 \begin{document}
 
 \maketitle % Print the title section
+\section{Descripción de la aplicación}
+Nuestro proyecto se basa en realizar una calculadora con diferentes funcionalidades, diseñada según en el paradigma cliente-servidor.
+Los clientes son los usuarios que solicitarán el procesamiento de un cálculo (operaciones simples o resolución de una ecuación) y el servidor será la calculadora que se encargará de atender las peticiones de los clientes y darles respuesta.
+Para ello, utilizaremos los sockets TCP que nos garantizan que la información que se intercambia entre los usuarios y la calculadora es fiable, la sobrecarga del TCP sobre el UDP no nos afecta.
 
+\section{Diagrama de estados del servidor}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.55]{./diagrama}
+	\end{figure}
+
+\section{Mensajes que intervienen}
+
+\begin{table}[]
+\centering
+\label{my-label}
+\begin{tabular}{lll}
+\hline
+\multicolumn{1}{|l|}{Código} & \multicolumn{1}{l|}{Cuerpo} & \multicolumn{1}{l|}{Descripción}   \\ \hline
+001                          & HOLA                        & Confirmación de conexión realizada \\
+002                          & OPC                         & Opción elegida                     \\
+003                          & OK                          & Elección verificada                \\
+004                          & ERR                         & Opción incorrecta                  \\
+005                          & DAT                         & Datos con los que operar           \\
+006                          & RES                         & Resultado de la operación          \\
+007                          & SI                          & Realizar otra operación            \\
+008                          & NO                          & No realizar otra operación         \\
+009                          & ADIOS                       & Finalización de la conexión       
+\end{tabular}
+\end{table}
 \end{document}
