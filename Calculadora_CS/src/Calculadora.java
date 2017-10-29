@@ -3,6 +3,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.io.*;
+import java.util.*;
 
 /**
  * @author Sofía Almeida Bruno
@@ -11,10 +13,49 @@ import java.net.Socket;
 
 // Clase mensaje asociada a calculadora
 class Mensaje {
-    public string mensaje(int cod) {
-	string mensaje;
-	//switch-case
-	return mensaje
+    private BufferedReader bf;
+
+
+    public Mensaje(String archivo){
+        bf = new BufferedReader(new FileReader(archivo));
+    }
+
+
+
+
+
+
+
+
+
+
+    public string mensaje(Integer cod) {
+    String mensaje;
+    String s1, s2;
+    StringTokenizer st;
+
+
+    do{
+    s1 = bf.readLine();
+    st = new StringTokenizer(s1);
+    s2 = st.nextToken();
+    } while(s2 != cod.toString());
+
+
+    cod++;
+
+    s1 = bf.readLine();
+    st = new StringTokenizer(s1);
+    s2 = st.nextToken();
+
+    while(s2 != cod.toString()){
+        mensaje += s1;
+        s1 = bf.readLine();
+        st = new StringTokenizer(s1);
+        s2 = st.nextToken();
+    }
+        
+	return mensaje;
     }
 }
 
@@ -24,10 +65,11 @@ public class Calculadora {
     private BufferedReader inReader;
     private PrintWriter outPrinter;
 
+
     // Constructor
 
     //
-    public int menu_ini() {
+    public int encender() {
 	//muestra mensaje correspondiente
 	//bucle esperando respuesta válida
 	return cod_menu_sec;
