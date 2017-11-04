@@ -13,48 +13,64 @@ import java.util.*;
 
 // Clase mensaje asociada a calculadora
 class Mensaje {
-    private BufferedReader bf;
+    private String archivo;
 
 
     public Mensaje(String archivo){
-        bf = new BufferedReader(new FileReader(archivo));
+        this.archivo = archivo;
+
     }
 
 
 
+    public String mensaje(Integer cod) throws IOException {
 
-
-
-
-
-
-
-    public string mensaje(Integer cod) {
-    String mensaje;
-    String s1, s2;
+    String mensaje = "";
+    String s1 = null, s2 = null;
     StringTokenizer st;
+    FileReader fl = new FileReader(archivo);
+    BufferedReader bf = new BufferedReader(fl);
 
-
+    //Esta sección se encarga de buscar donde comienza el mensaje a escribir
     do{
-    s1 = bf.readLine();
-    st = new StringTokenizer(s1);
-    s2 = st.nextToken();
-    } while(s2 != cod.toString());
+        s1 = bf.readLine();                              //Lee una linea
+
+        if(!s1.isEmpty()){                               //Si no esta vacia la divide en palabras
+            st = new StringTokenizer(s1);
+
+            try{                                         //Coge la primera palabra
+                s2 = st.nextToken();
+            }catch(NoSuchElementException e){
+                ;
+            }
+        }
+    } while(!s2.equals(cod.toString()));                         //Se repite mientras la palabra no sea el código del mensaje buscado
 
 
     cod++;
 
-    s1 = bf.readLine();
+    s1 = bf.readLine();                                  //Se cogen lineas y se guardan hasta no llegar al siguiente código de mensaje
     st = new StringTokenizer(s1);
-    s2 = st.nextToken();
-
-    while(s2 != cod.toString()){
-        mensaje += s1;
-        s1 = bf.readLine();
-        st = new StringTokenizer(s1);
+    try{
         s2 = st.nextToken();
+    }catch(NoSuchElementException e){
+        ;
     }
-        
+
+    while(!s2.equals(cod.toString())){
+        mensaje += s1;
+        mensaje += "\n";
+        s1 = bf.readLine();
+        if(!s1.isEmpty()){
+            st = new StringTokenizer(s1);
+            try{
+                s2 = st.nextToken();
+            }catch(NoSuchElementException e){
+                ;
+            }
+        }
+    }
+
 	return mensaje;
     }
 }
@@ -81,19 +97,19 @@ public class Calculadora {
     menu_op() {
 	//Muestra el menú de operaciones
 	//Pide opción y compueba si es válida
-	
+
     }
     menu_ec() {
 	//Muestra el menú de ecuaciones
     }
-    
+
     public static void main() {
 	int cod = menu_ini;
-	
+
 	if (cod == cod_menu_op)
 	    menu_op();
 	else
 	    menu_ec();
-	
+
     }
 }
