@@ -1,4 +1,4 @@
-código 001
+1
 
                         __________________________________________________
                        |                                                  |
@@ -18,7 +18,7 @@ Descripcion:
 Menú inicial de la calculadora
 
 ------------------------------------------------------------------------------------------
-código 002
+2
 
 OPERACIONES MATEMATICAS
 
@@ -35,7 +35,7 @@ Descripción
 Menú de operaciones matemáticas
 
 ------------------------------------------------------------------------------------------
-código 003
+3
 
 RESOLUTOR DE ECUACIONES
 
@@ -49,7 +49,7 @@ Descripción
 Menú de resolutor de ecuaciones
 
 ------------------------------------------------------------------------------------------
-código 004
+4
 
 Introduzca los dos operandos ( A B ): 
 
@@ -57,7 +57,7 @@ Descripción
 Petición de datos de los operandos
 
 ------------------------------------------------------------------------------------------
-código 005
+5
 
 Introduzca el operando: 
 
@@ -65,7 +65,7 @@ Descripción
 Petición de datos del operando
 
 ------------------------------------------------------------------------------------------
-código 006
+6
 
 Introduzca los dos operandos ( BASE EXPONENTE ):         
 
@@ -73,7 +73,7 @@ Descripción
 Petición de datos de los operandos
 
 ------------------------------------------------------------------------------------------
-código 007
+7
 
 Ax + B = 0
 
@@ -83,7 +83,7 @@ Descripción
 Petición de datos de la ecuación de primer grado
 
 ------------------------------------------------------------------------------------------
-código 008
+8
 
 Ax² + Bx + C = 0
 
@@ -93,7 +93,7 @@ Descripción
 Petición de datos de la ecuación de segundo grado
 
 ------------------------------------------------------------------------------------------
-código 009
+9
 
 AX³ + Bx² + Cx + D = 0
 
@@ -102,7 +102,7 @@ Introduzca los coeficientes ( A B C D ):
 Descripción
 Petición de datos de la ecuación de segundo grado
 ------------------------------------------------------------------------------------------
-código 010
+10
 
 El resultado es: (RESULTADO)
 
@@ -112,9 +112,12 @@ Descripción
 Muestra los resultados y pregunta si hacer nuevo cálculo.
 
 ------------------------------------------------------------------------------------------
-código 011
+11
 
 Adiós.
 
 Descripción
 Se despide.
+
+------------------------------------------------------------------------------------------
+12
