@@ -22,11 +22,11 @@ Menú inicial de la calculadora
 
 OPERACIONES MATEMATICAS
 
-A - SUMA                     E - POTENCIAL
+A - SUMA                     E - POTENCIA
 
 B - RESTA                    F - LOGARITMICA
 
-C - MULTIPLICACION           G - POTENCIA
+C - MULTIPLICACION           G - POTENCIAL
 
 D - DIVISION
 
@@ -104,9 +104,7 @@ Petición de datos de la ecuación de segundo grado
 ------------------------------------------------------------------------------------------
 10
 
-El resultado es: (RESULTADO)
-
-¿Volver a la CALCULADORA?(Si/No): 
+¿Volver a la CALCULADORA?(S/N): 
 
 Descripción
 Muestra los resultados y pregunta si hacer nuevo cálculo.
