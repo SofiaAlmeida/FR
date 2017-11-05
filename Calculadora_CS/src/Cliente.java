@@ -5,8 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.*;
 import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 
 
 /**
@@ -27,27 +26,34 @@ public class Cliente {
             PrintWriter outPrinter = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            inReader.read(bufferRecepcion);
+            String linea;
+	    while((linea = inReader.readLine()) != null)
+		bufferRecepcion += linea + "\n";
+	    
             while(bufferRecepcion.equals("Adiós.")) {
                 System.out.println(bufferRecepcion);
 
                 // Pedir dato por teclado
-                String s = ...
+                String entradaTeclado = "";
+		Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+		entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
 
-                outPrinter.println(s);
+                outPrinter.println(entradaTeclado);
 
                 // Se bloquea hasta que tengamos algo que leer
                 // Almacenamos el mensaje en bufferRecepcion
-                inReader.read(bufferRecepcion);
+		while((linea = inReader.readLine()) != null)
+		    bufferRecepcion += linea + "\n";
+	    }
 
-            }
-
-            System.out.println(bufferRecepcion);
-            socket.close()
-        } catch (UnknownHostException e) {
-            System.err.println("Error: Nombre de host no encontrado");
-        } catch (IOException ex) {
-            System.err.println("Error de entrada/salida al abrir el socket");
-        }
+	    
+	    System.out.println(bufferRecepcion);
+	    socket.close();
+	} catch (UnknownHostException e) {
+	    System.err.println("Error: Nombre de host no encontrado");
+	} catch (IOException ex) {
+	    System.err.println("Error de entrada/salida al abrir el socket");
+	}
+    
     }
 }
