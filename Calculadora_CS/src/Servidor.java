@@ -13,37 +13,44 @@ import java.net.Socket;
 // Cuando un cliente establece comunicación establece un socket TCP que luego le pasamos a Calculadora
 // A partir de ese momento Calculadora realiza la comunicación con el cliente a través del socket
 
-class Calculador extends Thread{
+class Calculador extends Thread {
     private Socket socket;
     
-    Calculador(Socket socket){
+    Calculador(Socket socket) {
         this.socket = socket;
     }
 
-    public void run(){
-        Calculadora calculadora = new Calculadora(socket);
-        Calculadora.encender();
+    public void run() {
+        try {
+	    Calculadora calculadora = new Calculadora(socket);
+	    calculadora.encender();
+	} catch (IOException e) {
+	    System.err.println("Error al crear/encender calculadora");
+	}
     }
 
 }
 
 
-public class Server{
-    int puerto = 8888;
-    ServerSocket servidorSocket;
-    Socket socket;
+public class Servidor {
 
-    try {
-        servidorSocket = new ServerSocket(puerto);
+    public static void main(String[] args) {
+	int puerto = 8888;
+	ServerSocket servidorSocket;
+	Socket socket;
 
-        do{
-            socket = servidorSocket.accept();
-            Calculador calculador = new Calculador(socket);
-            calculador.start();
+	try {
+	    servidorSocket = new ServerSocket(puerto);
 
-        } while(true);
-    }
-    catch (Exception err) {
-        System.out.println();
+	    do{
+		socket = servidorSocket.accept();
+		Calculador calculador = new Calculador(socket);
+		calculador.start();
+
+	    } while(true);
+	}
+	catch (IOException e) {
+	    System.err.println("Error al escuchar en el puerto " + puerto);
+	}
     }
 }
