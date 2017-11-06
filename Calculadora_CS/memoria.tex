@@ -36,6 +36,7 @@
 \documentclass[a4paper, 11pt]{article}
 \usepackage[protrusion=false,expansion=false]{microtype}
 \usepackage{mathpazo}
+\usepackage[section]{placeins}
 
 % Indentación de párrafos para Palatino
 \setlength{\parindent}{0pt}
@@ -122,16 +123,17 @@ Definición e implementación de un protocolo de aplicación} % Subtitle
 
 \maketitle % Print the title section
 \section{Descripción de la aplicación}
-Nuestro proyecto se basa en realizar una calculadora con diferentes funcionalidades, diseñada según en el paradigma cliente-servidor.
+Nuestro proyecto se basa en la realización de una calculadora con diferentes funcionalidades, diseñada según en el paradigma cliente-servidor.
 Los clientes son los usuarios que solicitarán el procesamiento de un cálculo (operaciones simples o resolución de una ecuación) y el servidor será la calculadora que se encargará de atender las peticiones de los clientes y darles respuesta.
 Para ello, utilizaremos los sockets TCP que nos garantizan que la información que se intercambia entre los usuarios y la calculadora es fiable, la sobrecarga del TCP sobre el UDP no nos afecta.
 
 \section{Diagrama de estados del servidor}
-	\begin{figure}[h]
+	\begin{figure}[!h]
 		\centering
-		\includegraphics[scale=0.55]{./diagrama}
+		\includegraphics[scale=0.7]{./diagrama}
 	\end{figure}
 
+Partiendo de un estado $INICIO$, cuando el cliente establece la conexión llegamos a un menú inicial ($MENU\_INI$) donde el usuario puede elegir si quiere realizar una operación simple o resolver una ecuación. Esta elección lo llevará a un menú secundario ($MENU_SEC$), específico según la opción, donde a su vez tendrá que decidir la operación concreta o el grado de la operación a resolver. Pasará entonces a un estado de petición de datos ($PET_DAT$) donde indicará los datos con los que operar, el servidor responderá mandando el resultado de la operación y llegará a otro estado ($OTRA_OP$) donde el cliente puede elegir si quiere realizar otra operación o finalizar la ejecución ($FIN$). 
 \section{Mensajes que intervienen}
 
 \begin{table}[]
@@ -151,4 +153,7 @@ Para ello, utilizaremos los sockets TCP que nos garantizan que la información q
 009                          & ADIOS                       & Finalización de la conexión       
 \end{tabular}
 \end{table}
+
+\section{Evaluación de la aplicación}
+% Añadir capturas de la ejecución y explicarlas
 \end{document}
