@@ -111,7 +111,8 @@ public class Calculadora {
 
     private Character comunicacion(String s) throws IOException {
 	Character c;
-        outPrinter.println(s); // Le pasamos el mensaje
+
+	outPrinter.println(s); // Le pasamos el mensaje
 	outPrinter.flush();
         c = (char) inReader.read(); // Cliente devuelve la opción inicial
 	
