@@ -22,17 +22,16 @@ public class Cliente {
 
         try {
             socket = new Socket(host, puerto);
-
             PrintWriter outPrinter = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
             String linea;
-	    while((linea = inReader.readLine()) != null)
+	    
+	    while(!(linea = inReader.readLine()).equals("FIN")) 
 		bufferRecepcion += linea + "\n";
 	    
-            while(bufferRecepcion.equals("Adiós.")) {
-                System.out.println(bufferRecepcion);
-
+            while(!bufferRecepcion.equals("Adiós.")) {
+		System.out.println(bufferRecepcion);
+		
                 // Pedir dato por teclado
                 String entradaTeclado = "";
 		Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
@@ -42,7 +41,7 @@ public class Cliente {
 
                 // Se bloquea hasta que tengamos algo que leer
                 // Almacenamos el mensaje en bufferRecepcion
-		while((linea = inReader.readLine()) != null)
+		while(!(linea = inReader.readLine()).equals("FIN")) 
 		    bufferRecepcion += linea + "\n";
 	    }
 
