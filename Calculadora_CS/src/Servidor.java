@@ -42,7 +42,7 @@ public class Servidor {
 	try {
 	    servidorSocket = new ServerSocket(puerto);
 
-	    do{
+	    do {
 		socket = servidorSocket.accept();
 		Calculador calculador = new Calculador(socket);
 		calculador.start();

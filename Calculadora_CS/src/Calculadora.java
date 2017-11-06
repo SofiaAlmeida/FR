@@ -15,33 +15,33 @@ import static java.lang.Math.*;
 
 // Clase mensaje asociada a calculadora
 class Mensaje {
-    private final String archivo = "/home/fernando/mesaje.txt";
-
-
-
-
-
+    // Ruta del archivo donde se encuentren los mensajes
+    private final String archivo = "../mensajes.txt";
 
     public String mensaje(Integer cod) throws IOException {
-
-    String mensaje = "";
-    String s1 = null, s2 = null;
-    StringTokenizer st;
-    FileReader fl = new FileReader(archivo);
-    BufferedReader bf = new BufferedReader(fl);
-
+	/*File f = new File(archivo);
+	  f.getAbsolutePath()*/
+	    String mensaje = "";
+	    String s1 = null, s2 = null;
+	    StringTokenizer st;
+	    FileReader fl;
+	    BufferedReader bf;
+	try {
+	    fl = new FileReader(archivo);
+	    bf = new BufferedReader(fl);
+	} catch (IOException e) {
+	    throw new ExceptionInInitializerError(e.getMessage());
+	}
     //Esta sección se encarga de buscar donde comienza el mensaje a escribir
-    do{
+    do {
         s1 = bf.readLine();                              //Lee una linea
 
-        if(!s1.isEmpty()){                               //Si no esta vacia la divide en palabras
+        if(!s1.isEmpty()) {                               //Si no esta vacia la divide en palabras
             st = new StringTokenizer(s1);
 
-            try{                                         //Coge la primera palabra
+            try {                                         //Coge la primera palabra
                 s2 = st.nextToken();
-            }catch(NoSuchElementException e){
-                ;
-            }
+            } catch(NoSuchElementException e) {}
         }
     } while(!s2.equals(cod.toString()));                         //Se repite mientras la palabra no sea el código del mensaje buscado
 
@@ -50,13 +50,11 @@ class Mensaje {
 
     s1 = bf.readLine();                                  //Se cogen lineas y se guardan hasta no llegar al siguiente código de mensaje
     st = new StringTokenizer(s1);
-    try{
+    try {
         s2 = st.nextToken();
-    }catch(NoSuchElementException e){
-        ;
-    }
+    } catch(NoSuchElementException e) {}
 
-    while(!s2.equals(cod.toString())){
+    while(!s2.equals(cod.toString())) {
         mensaje += s1;
         mensaje += "\n";
         s1 = bf.readLine();
@@ -83,11 +81,11 @@ public class Calculadora {
 
 
     // Constructor
-    Calculadora(Socket socket) throws IOException{
+    Calculadora(Socket socket) throws IOException {
         this.socket=socket;
 	inReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	outPrinter = new PrintWriter(socket.getOutputStream(),true);
-        m = new Mensaje();
+	m = new Mensaje();
     }
 
 
@@ -102,21 +100,21 @@ public class Calculadora {
         return c;
     }
 
-    private String peticion_datos(String s) throws IOException{
+    private String peticion_datos(String s) throws IOException {
         String datos;
-        outPrinter.println(s); //Le pasamos el mensaje
+        outPrinter.println(s); // Le pasamos el mensaje
         outPrinter.flush();
         datos = inReader.readLine(); // Cliente devuelve los datos
 
         return datos;
     }
 
-    private Character comunicacion(String s) throws IOException{
-        Character c;
-        outPrinter.println(s); //Le pasamos el mensaje
-        outPrinter.flush();
+    private Character comunicacion(String s) throws IOException {
+	Character c;
+        outPrinter.println(s); // Le pasamos el mensaje
+	outPrinter.flush();
         c = (char) inReader.read(); // Cliente devuelve la opción inicial
-
+	
         return c;
     }
 
@@ -124,19 +122,18 @@ public class Calculadora {
     public void encender() throws IOException {
         Character c;
 
-        do{
+        do {
         c = comunicacion(m.mensaje(1));
-
-        while(!c.equals('A') && !c.equals('B')){
+        while(!c.equals('A') && !c.equals('B'))
             c = comunicacion("Error: opción incorrecta\n\n"+ m.mensaje(1));
-        }
+        
 
         if(c.equals('A'))
             c = menu_op();
         else
             c = menu_ec();
 
-        }while(c.equals('S'));
+        } while(c.equals('S'));
 
         outPrinter.println(m.mensaje(11));
         outPrinter.flush();
