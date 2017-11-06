@@ -31,12 +31,12 @@ public class Cliente {
 	    
             while(!bufferRecepcion.equals("Adiós.")) {
 		System.out.println(bufferRecepcion);
+		bufferRecepcion = null; // Vaciamos buffer para no imprimir los mensajes anteriores cada vez
 		
                 // Pedir dato por teclado
                 String entradaTeclado = "";
 		Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
 		entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
-
                 outPrinter.println(entradaTeclado);
 
                 // Se bloquea hasta que tengamos algo que leer

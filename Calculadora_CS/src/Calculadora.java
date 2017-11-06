@@ -93,7 +93,7 @@ public class Calculadora {
         Character c;
 
         c = comunicacion("El resultado es: " + s + "\n\n" + m.mensaje(10));
-        while((c != 'S') && (c != 'N')){
+        while((!c.equals('S')) && (!c.equals('N'))) {
             c = comunicacion("\nOpción incorrecta: \n" +m.mensaje(10));
         }
 
@@ -128,7 +128,6 @@ public class Calculadora {
         while(!c.equals('A') && !c.equals('B'))
             c = comunicacion("Error: opción incorrecta\n\n"+ m.mensaje(1));
         
-
         if(c.equals('A'))
             c = menu_op();
         else
@@ -142,12 +141,12 @@ public class Calculadora {
 
     public Character menu_ec() throws IOException {
         Character c;
-
         c = comunicacion(m.mensaje(3));
+	
         while(c < 'A' || c > 'B')
             c = comunicacion("Error: opción incorrecta\n\n" + m.mensaje(3));
 
-        if(c == 'A')
+        if(c.equals('A'))
             c = ec1();
         else
             c = ec2();
