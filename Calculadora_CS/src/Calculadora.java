@@ -18,13 +18,13 @@ class Mensaje {
     // Ruta del archivo donde se encuentren los mensajes
     private final String archivo = "../mensajes.txt";
 
-	// Devuelve el mensaje cod
+    // Devuelve el mensaje cod
     public String mensaje(Integer cod) throws IOException {
-	    String mensaje = "";
-	    String s1 = "", s2 = "";
-	    StringTokenizer st;
-	    FileReader fl;
-	    BufferedReader bf;
+	String mensaje = "";
+	String s1 = "", s2 = "";
+	StringTokenizer st;
+	FileReader fl;
+	BufferedReader bf;
 	try {
 	    fl = new FileReader(archivo);
 	    bf = new BufferedReader(fl);
@@ -32,40 +32,40 @@ class Mensaje {
 	    throw new ExceptionInInitializerError(e.getMessage());
 	}
 
-    // Esta sección se encarga de buscar donde comienza el mensaje a escribir
-    do {
-        s1 = bf.readLine(); 							  // Lee una línea
+	// Esta sección se encarga de buscar donde comienza el mensaje a escribir
+	do {
+	    s1 = bf.readLine(); 							  // Lee una línea
 
-        if(!s1.isEmpty()) {                               // Si no está vacía la divide en palabras
-            st = new StringTokenizer(s1);
+	    if(!s1.isEmpty()) {                               // Si no está vacía la divide en palabras
+		st = new StringTokenizer(s1);
 
-            try {                                         // Coge la primera palabra
-                s2 = st.nextToken();
-            } catch(NoSuchElementException e) {}
-        }
-    } while(!s2.equals(cod.toString()));                  // Se repite mientras la palabra no sea el código del mensaje buscado
+		try {                                         // Coge la primera palabra
+		    s2 = st.nextToken();
+		} catch(NoSuchElementException e) {}
+	    }
+	} while(!s2.equals(cod.toString()));                  // Se repite mientras la palabra no sea el código del mensaje buscado
 
-    cod++;
+	cod++;
 
-    s1 = bf.readLine();                                  // Se cogen líneas y se guardan hasta no llegar al siguiente código de mensaje
-    st = new StringTokenizer(s1);
-    try {
-        s2 = st.nextToken();
-    } catch(NoSuchElementException e) {}
+	s1 = bf.readLine();                                  // Se cogen líneas y se guardan hasta no llegar al siguiente código de mensaje
+	st = new StringTokenizer(s1);
+	try {
+	    s2 = st.nextToken();
+	} catch(NoSuchElementException e) {}
 
-    while(!s2.equals(cod.toString())) {
-        mensaje += s1;
-        mensaje += "\n";
-        s1 = bf.readLine();
-        if(!s1.isEmpty()) {
-            st = new StringTokenizer(s1);
-            try {
-                s2 = st.nextToken();
-            } catch(NoSuchElementException e) {
-                ;
-            }
-        }
-    }
+	while(!s2.equals(cod.toString())) {
+	    mensaje += s1;
+	    mensaje += "\n";
+	    s1 = bf.readLine();
+	    if(!s1.isEmpty()) {
+		st = new StringTokenizer(s1);
+		try {
+		    s2 = st.nextToken();
+		} catch(NoSuchElementException e) {
+		    ;
+		}
+	    }
+	}
 
 	return mensaje;
     }
@@ -82,12 +82,12 @@ public class Calculadora {
     // Constructor
     Calculadora(Socket socket) throws IOException {
         this.socket=socket;
-		inReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		outPrinter = new PrintWriter(socket.getOutputStream(),true);
-		m = new Mensaje();
+	inReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+	outPrinter = new PrintWriter(socket.getOutputStream(),true);
+	m = new Mensaje();
     }
 
-	// Muestra el resultado y pregunta si desea realizar otra operación
+    // Muestra el resultado y pregunta si desea realizar otra operación
     private Character res_volver(String s) throws IOException {
         Character c;
 
@@ -99,18 +99,18 @@ public class Calculadora {
         return c;
     }
 
-	// Pide y almacena los datos
+    // Pide y almacena los datos
     private String peticion_datos(String s) throws IOException {
         String datos;
         outPrinter.println(s); // Le pasamos el mensaje
         outPrinter.flush();
         do {
-        datos = inReader.readLine(); // Cliente devuelve los datos
+	    datos = inReader.readLine(); // Cliente devuelve los datos
         } while(datos.equals("\n") || datos.equals(" ") || datos.isEmpty());
         return datos;
     }
 
-	// Envía mensaje al cliente y recibe la respuesta
+    // Envía mensaje al cliente y recibe la respuesta
     private Character comunicacion(String s) throws IOException {
 	Character c;
 
@@ -124,19 +124,19 @@ public class Calculadora {
         return c;
     }
 
-	// Punto de partida de comunicación entre el usuario y la calculadora
+    // Punto de partida de comunicación entre el usuario y la calculadora
     public void encender() throws IOException {
         Character c;
 
         do {
-        	c = comunicacion(m.mensaje(1));
-       		while(!c.equals('A') && !c.equals('B'))
+	    c = comunicacion(m.mensaje(1));
+	    while(!c.equals('A') && !c.equals('B'))
             	c = comunicacion("Error: opción incorrecta\n\n" + m.mensaje(1));
         
-		    if(c.equals('A'))
-		        c = menu_op();
-		    else
-		        c = menu_ec();
+	    if(c.equals('A'))
+		c = menu_op();
+	    else
+		c = menu_ec();
 
         } while(c.equals('S'));
 
@@ -144,7 +144,7 @@ public class Calculadora {
         outPrinter.flush();
     }
 
-	// Muestra el menú de ecuaciones, recibe el tipo y devuelve el resultado
+    // Muestra el menú de ecuaciones, recibe el tipo y devuelve el resultado
     public Character menu_ec() throws IOException {
         Character c;
         c = comunicacion(m.mensaje(3));
@@ -160,7 +160,7 @@ public class Calculadora {
         return c;
     }
 
-	// Resuelve una ecuación de primer grado
+    // Resuelve una ecuación de primer grado
     public Character ec1() throws IOException {
         String s = peticion_datos(m.mensaje(7));
         Double d1, d2;
@@ -175,13 +175,13 @@ public class Calculadora {
         return res_volver(s);
     }
 
-	// Resuelve una ecuación de primer grado
+    // Resuelve una ecuación de primer grado
     public Character ec1(double d1, double d2) throws IOException {
         String s = d1 == 0 ? "No tiene solución" : "x = " + String.valueOf(-d2 / d1);
         return res_volver(s);
     }
 
-	// Resuelve una ecuación de segundo grado
+    // Resuelve una ecuación de segundo grado
     public Character ec2() throws IOException {
         String s = peticion_datos(m.mensaje(8));
         Double d1, d2, d3, d;
@@ -207,7 +207,7 @@ public class Calculadora {
         return c;
     }
 
-	// Muestra el menú de operaciones, pide los datos y devuelve el resultado
+    // Muestra el menú de operaciones, pide los datos y devuelve el resultado
     Character menu_op() throws IOException {
 	Character c;
 
@@ -225,7 +225,7 @@ public class Calculadora {
         return c;
     }
 
-	// Operaciones monarias
+    // Operaciones monarias
     Character op_mon(Character c) throws IOException {
         String s = peticion_datos(m.mensaje(5));
         Double d = Double.parseDouble(s);
@@ -238,7 +238,7 @@ public class Calculadora {
         return res_volver(String.valueOf(d));
     }
 
-	// Operaciones binarias
+    // Operaciones binarias
     public Character op_bin(Character c) throws IOException {
         String s;
         Double d1, d2;
@@ -255,21 +255,21 @@ public class Calculadora {
         d2 = Double.parseDouble(s);
 
         switch (c) {
-            case 'A':
-                d1 = d1 + d2;
-                break;
-            case 'B':
-                d1 = d1 - d2;
-                break;
-            case 'C':
-                d1 = d1 * d2;
-                break;
-            case 'D':
-                d1 = d1 / d2;
-                break;
-            case 'E':
-                d1 = pow(d1, d2);
-                break;
+	case 'A':
+	    d1 = d1 + d2;
+	    break;
+	case 'B':
+	    d1 = d1 - d2;
+	    break;
+	case 'C':
+	    d1 = d1 * d2;
+	    break;
+	case 'D':
+	    d1 = d1 / d2;
+	    break;
+	case 'E':
+	    d1 = pow(d1, d2);
+	    break;
         }
 
         return res_volver(String.valueOf(d1));
