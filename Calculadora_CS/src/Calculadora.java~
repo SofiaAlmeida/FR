@@ -16,7 +16,7 @@ import static java.lang.Math.*;
 // Clase mensaje asociada a calculadora
 class Mensaje {
     // Ruta del archivo donde se encuentren los mensajes
-    private final String archivo = "/home/fernando/Carrera/Tercero/FR/FR/Calculadora_CS/mensajes.txt";
+    private final String archivo = "../mensajes.txt";
 
     public String mensaje(Integer cod) throws IOException {
 	/*File f = new File(archivo);
@@ -104,10 +104,7 @@ public class Calculadora {
         String datos;
         outPrinter.println(s); // Le pasamos el mensaje
         outPrinter.flush();
-
-        do{
-        	datos = inReader.readLine(); // Cliente devuelve los datos
-        } while(datos.equals("\n") || datos.equals(" ") || datos.isEmpty());
+        datos = inReader.readLine(); // Cliente devuelve los datos
 
         return datos;
     }
@@ -117,11 +114,8 @@ public class Calculadora {
 
 	outPrinter.println(s); // Le pasamos el mensaje
 	outPrinter.flush();
-        
-        do{
-            c = (char) inReader.read(); // Cliente devuelve la opción inicial
-        } while(c.equals('\n') || c.equals(' '));
-        
+        c = (char) inReader.read(); // Cliente devuelve la opción inicial
+	
         return c;
     }
 
@@ -208,12 +202,11 @@ public class Calculadora {
 	Character c;
 
         c = comunicacion(m.mensaje(2));
-        while(c.charValue() < 'A' || c.charValue() > 'G'){
-            System.out.println("El caracter introducido es:" + c.toString() +"Caracter Introducido." );
+        while(c < 'A' || c > 'G'){
             c = comunicacion("Error: opción incorrecta\n\n"+ m.mensaje(2));
         }
 
-        if(c.charValue() >= 'F')
+        if(c >= 'F')
             c = op_mon(c);
         else
             c = op_bin(c);
