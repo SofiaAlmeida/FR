@@ -9,31 +9,26 @@
 
 
 
-                        A - OPERACIONES MATEMATICAS
+                        A - OPERACIONES MATEMÁTICAS
                         
                         B - RESOLUTOR DE ECUACIONES
 
 
-Descripcion:
-Menú inicial de la calculadora
 
 FIN
 ------------------------------------------------------------------------------------------
 2
 
-OPERACIONES MATEMATICAS
+OPERACIONES MATEMÁTICAS
 
 A - SUMA                     E - POTENCIA
 
-B - RESTA                    F - LOGARITMICA
+B - RESTA                    F - LOGARÍTMICA
 
-C - MULTIPLICACION           G - POTENCIAL
+C - MULTIPLICACIÓN           G - POTENCIAL
 
-D - DIVISION
+D - DIVISIÓN
 
-
-Descripción
-Menú de operaciones matemáticas
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -45,10 +40,6 @@ A - PRIMER GRADO
 
 B - SEGUNDO GRADO
 
-C - TERCER GRADO
-
-Descripción
-Menú de resolutor de ecuaciones
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -56,8 +47,6 @@ FIN
 
 Introduzca los dos operandos ( A B ): 
 
-Descripción
-Petición de datos de los operandos
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -65,8 +54,6 @@ FIN
 
 Introduzca el operando: 
 
-Descripción
-Petición de datos del operando
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -74,8 +61,6 @@ FIN
 
 Introduzca los dos operandos ( BASE EXPONENTE ):         
 
-Descripción
-Petición de datos de los operandos
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -85,8 +70,6 @@ Ax + B = 0
 
 Introduzca los coeficientes ( A B ): 
 
-Descripción
-Petición de datos de la ecuación de primer grado
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -96,8 +79,6 @@ Ax² + Bx + C = 0
 
 Introduzca los coeficientes ( A B C ):
 
-Descripción
-Petición de datos de la ecuación de segundo grado
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -107,17 +88,13 @@ AX³ + Bx² + Cx + D = 0
 
 Introduzca los coeficientes ( A B C D ):
 
-Descripción
-Petición de datos de la ecuación de segundo grado
 
 FIN
 ------------------------------------------------------------------------------------------
 10
 
-¿Volver a la CALCULADORA?(S/N): 
+¿Volver a la CALCULADORA? (S/N): 
 
-Descripción
-Muestra los resultados y pregunta si hacer nuevo cálculo.
 
 FIN
 ------------------------------------------------------------------------------------------
@@ -125,8 +102,6 @@ FIN
 
 Adiós.
 
-Descripción
-Se despide.
 
 FIN
 ------------------------------------------------------------------------------------------

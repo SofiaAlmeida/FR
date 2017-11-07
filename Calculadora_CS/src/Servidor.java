@@ -22,11 +22,11 @@ class Calculador extends Thread {
 
     public void run() {
         try {
-	    Calculadora calculadora = new Calculadora(socket);
-	    calculadora.encender();
-	} catch (IOException e) {
-	    System.err.println("Error al crear/encender calculadora");
-	}
+			Calculadora calculadora = new Calculadora(socket);
+			calculadora.encender();
+		} catch (IOException e) {
+			System.err.println("Error al crear/encender calculadora");
+		}
     }
 
 }
@@ -35,22 +35,21 @@ class Calculador extends Thread {
 public class Servidor {
 
     public static void main(String[] args) {
-	int puerto = 8888;
-	ServerSocket servidorSocket;
-	Socket socket;
+		int puerto = 8888;
+		ServerSocket servidorSocket;
+		Socket socket;
 
-	try {
-	    servidorSocket = new ServerSocket(puerto);
+		try {
+			servidorSocket = new ServerSocket(puerto);
 
-	    do {
-		socket = servidorSocket.accept();
-		Calculador calculador = new Calculador(socket);
-		calculador.start();
+			do {
+			socket = servidorSocket.accept();
+			Calculador calculador = new Calculador(socket);
+			calculador.start();
 
-	    } while(true);
-	}
-	catch (IOException e) {
-	    System.err.println("Error al escuchar en el puerto " + puerto);
-	}
+			} while(true);
+		} catch (IOException e) {
+			System.err.println("Error al escuchar en el puerto " + puerto);
+		}
     }
 }

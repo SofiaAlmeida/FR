@@ -9,3 +9,6 @@
 
 # Archivos auxiliares java
 *.class
+
+# Archivos auxiliares editor
+*~
