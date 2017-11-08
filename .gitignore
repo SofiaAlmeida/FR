@@ -8,7 +8,7 @@
 *.toc
 *.sty
 *.fls
-*.fbd_latexmk
+*.fdb_latexmk
 
 # Archivos auxiliares java
 *.class
