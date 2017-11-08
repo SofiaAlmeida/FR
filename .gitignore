@@ -6,6 +6,9 @@
 *.out
 *.snm
 *.toc
+*.sty
+*.fls
+*.fbd_latexmk
 
 # Archivos auxiliares java
 *.class
