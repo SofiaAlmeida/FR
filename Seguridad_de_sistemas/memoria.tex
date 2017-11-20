@@ -104,7 +104,7 @@
 }
 
 %% Título
-\title{\textbf{Software para tests de seguridad}\\ % Title
+\title{\textbf{Software para test de seguridad}\\ % Title
 Fundamentos de Redes} % Subtitle
 
 \author{\textsc{Sofía Almeida Bruno\\Fernando de la Hoz Moreno} % Author
@@ -125,13 +125,52 @@ Fundamentos de Redes} % Subtitle
 \tableofcontents
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                           INTRODUCCIÓN                              %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introducción}
 
+Los test de seguridad son un conjunto de metodologías y técnicas que permiten simular ataques maliciosos para evaluar el nivel de seguridad de una red, sistema o software y así poder prevenirlos.\\
+
+Podemos distinguir dos tipos de intrusión según desde donde se realice el acceso:
+\begin{itemize}
+	\item \textbf{Caja negra}: el auditor solo dispone de información pública, realiza el test "desde fuera de la red", simulando un ataque con los recursos que tendría una persona externa.
+		\item \textbf{Caja blanca}: el auditor hace el test con información sobre el sistema, desde dentro de la red, con diferentes privilegios.
+\end{itemize}
+
+A continuación, explicaremos distintos tipos de herramientas utilizadas para evaluar diferentes aspectos de la seguridad, una no sustituye a otra, son complementarias.
 
 
-\section{Kali Linux}
-\subsection{Nmap}
-\subsection{Metasploit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                        TIPOS DE HERRAMIENTAS                        %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tipos de herramientas}
+
+Clasificaremos las diferentes utilidades según el objetivo que persiguen.
+
+\subsection{Recopilar información}
+Estos programas permiten capturar toda la información posible sobre el objetivo, direcciones IP, posibles nombres de usuario, DNS, $\dots$ Se puede obtener información de forma activa, enviando tráfico hacia la red objetivo o escaneando puertos TCP/UDP, y de forma pasiva, buscando en los recursos públicos con este objetivo y disminuyendo la probabilidad de ser detectados.
+
+\subsection{Análisis de vulnerabilidades}
+
+Estas herramientas permiten conocer las máquinas que están disponibles de la red, tipo y versión del sistema operativo, puertos abiertos, servicios en funcionamiento.
+
+\subsubsection{Nmap}
+Un ejemplo de este tipo de herramientas es \textit{nmap} (network mapper)
+
+% Completar con información del pdf específico
+
+\subsection{Aplicaciones Web}
+\subsection{Evaluación de Bases de Datos}
+\subsection{Ataques de contraseñas}
+\subsection{Ataques Wireless}
+\subsection{Ingeniería inversa}
+%REVIEW: cambiar título
+\subsection{Herramientas de explotación}
+\subsection{Sniffing}
+\subsection{Mantener el acceso}
+
+
 \section{Bibliografía}
 
 \end{document}
