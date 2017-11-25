@@ -138,39 +138,52 @@ Podemos distinguir dos tipos de intrusión según desde donde se realice el acce
 		\item \textbf{Caja blanca}: el auditor hace el test con información sobre el sistema, desde dentro de la red, con diferentes privilegios.
 \end{itemize}
 
-A continuación, explicaremos distintos tipos de herramientas utilizadas para evaluar diferentes aspectos de la seguridad, una no sustituye a otra, son complementarias.
+Existen muchos tipos de herramientas para evaluar diferentes aspectos de la seguridad, una no sustituye a otra, son complementarias. 
 
+Kali Linux es un sistema operativo, basado en Debian, orientado a la realización de pruebas de penetración y auditorías de seguridad. Es un entorno de desarrollo seguro, esto quiere decir que solo un pequeño grupo de personas puede acceder e interactuar con los paquetes del sistema. Kali tiene más de 300 herramientas de pruebas de seguridad agrupadas según su función: recopilar información, análisis de vulnerabilidades, aplicaciones web, evaluación de bases de datos, ataques a contraseñas, ataques wireless, ingeniería inversa, herramientas de explotación, sniffing, mantener el acceso.
+
+En esta exposición nos centraremos en cinco herramientas ampliamente utilizadas y que tienen diferentes objetivos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                        TIPOS DE HERRAMIENTAS                        %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tipos de herramientas}
+%\section{Tipos de herramientas}
 
-Clasificaremos las diferentes utilidades según el objetivo que persiguen.
+%Clasificaremos las diferentes utilidades según el objetivo que persiguen.
 
-\subsection{Recopilar información}
-Estos programas permiten capturar toda la información posible sobre el objetivo, direcciones IP, posibles nombres de usuario, DNS, $\dots$ Se puede obtener información de forma activa, enviando tráfico hacia la red objetivo o escaneando puertos TCP/UDP, y de forma pasiva, buscando en los recursos públicos con este objetivo y disminuyendo la probabilidad de ser detectados.
+%\subsection{Recopilar información}
+%Estos programas permiten capturar toda la información posible sobre el objetivo, direcciones IP, posibles nombres de usuario, DNS, $\dots$ Se puede obtener información de forma activa, enviando tráfico hacia la red objetivo o escaneando puertos TCP/UDP, y de forma pasiva, buscando en los recursos públicos con este objetivo y disminuyendo la probabilidad de ser detectados.
 
-\subsection{Análisis de vulnerabilidades}
+%\subsection{Análisis de vulnerabilidades}
 
-Estas herramientas permiten conocer las máquinas que están disponibles de la red, tipo y versión del sistema operativo, puertos abiertos, servicios en funcionamiento.
+%Estas herramientas permiten conocer las máquinas que están disponibles de la red, tipo y versión del sistema operativo, puertos abiertos, servicios en funcionamiento.
 
-\subsubsection{Nmap}
-Un ejemplo de este tipo de herramientas es \textit{nmap} (network mapper)
+\section{John the Ripper}
 
-% Completar con información del pdf específico
+John the Ripper es una aplicación de descifrado de claves (password craking), es una de las herramientas más populares para test de contraseñas porque reúne diferentes técnicas para desencriptar contraseñas. El objetivo es que el administrador evalúe la seguridad de las contraseñas elegidas por los usuarios para previnirlos si son débiles.
 
-\subsection{Aplicaciones Web}
-\subsection{Evaluación de Bases de Datos}
-\subsection{Ataques de contraseñas}
-\subsection{Ataques Wireless}
-\subsection{Ingeniería inversa}
-%REVIEW: cambiar título
-\subsection{Herramientas de explotación}
-\subsection{Sniffing}
-\subsection{Mantener el acceso}
+Puede utilizarse para varios formatos de encriptación de contraseñas incluyendo muchos tipos de encriptación hash los cuales se encuentran mayormente en varias versiones Unix y Windows.
+
+?`Cómo funciona?
+
+En primer lugar, se proporciona un archivo con las contraseñas encriptadas. Por ejemplo, en los sistemas Unix se obtienen de los archivos /etc/passwd y /etc/shadow. Se puede personalizar el tipo de ataque pero el más común suele ser el ataque por diccionario. Un archivo (wordlist) en el que hay una lista de palabras de un diccionario o contraseñas reales ya encontradas o combinaciones y alteraciones de las mismas. Las palabras se encriptan y se comparan con el hash del archivo de contraseñas, devolviendo las coincidencias.  
+
+El ataque por diccionario es más efectivo, pero si no tiene éxito, podemos intentar el ataque por fuerza bruta, que consiste en comprobar todas las posibilidades.
+
+\section{Aircrack-ng}
+
+
+
+\section{Wireshark}
+\section{Nmap}
+\section{Metaexploit}
 
 
 \section{Bibliografía}
+\begin{itemize}
+	\item http://www.openwall.com/john/doc/
+	\item https://en.wikipedia.org/wiki/John$\_$the$\_$Ripper
+	\item 
+\end{itemize}
 
 \end{document}
